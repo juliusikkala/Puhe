@@ -128,12 +128,15 @@ chain_iterator& chain_iterator::operator++()
     n=n->next(rng);
     return *this;
 }
+void chain::clear()
+{
+    nodes.clear();
+    head.clear();
+}
 void chain::generate(const std::string& source)
 {
     size_t i=0;
     std::vector<std::string> sources=split(source);
-    head.clear();
-    nodes.clear();
     if(sources.size()>0)
     {
         head.add_link(nodes[sources[0]]);

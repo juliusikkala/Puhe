@@ -69,6 +69,7 @@
     class chain
     {
     public:
+        void clear();
         void generate(const std::string& source);
         chain_iterator begin() const;
         chain_iterator end() const;
