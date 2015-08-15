@@ -23,8 +23,18 @@ static void find_node(
             return;
         case ':':
         case '\'':
-        case '-':
             if(len==0)
+            {
+                len=1;
+                return;
+            }
+            else if(source[1]==' ')
+            {
+                return;
+            }
+            break;
+        case '-':
+            if(len==0&&source[1]==' ')
             {
                 len=1;
                 return;

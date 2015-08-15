@@ -29,7 +29,7 @@ int main(int argc, char **argv)
     for(i=1;i<argc;++i)
     {
         std::string src;
-        if(read_file(argv[1], src))
+        if(read_file(argv[i], src))
         {
             printf("%s: Could not open file for reading\n", argv[1]);
             return 2;
@@ -39,11 +39,12 @@ int main(int argc, char **argv)
 
     for(const std::string& str: c)
     {
-        if(str.size()>0&&!char_one_of(str[0], ".,!?:;/\\-"))
+        if(str.size()!=1||!char_one_of(str[0], ".,!?:;/\\-\'"))
         {
             putchar(' ');
         }
         printf("%s", str.c_str());
+        fflush(stdout);
     }
     putchar('\n');
 }
